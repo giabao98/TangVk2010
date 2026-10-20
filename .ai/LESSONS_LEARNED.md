@@ -28,3 +28,5 @@
 > *Những quyết định kiến trúc hoặc phong cách code mà User đã chốt riêng cho dự án này.*
 
 - Giữ nguyên cấu trúc Vanilla HTML/CSS/JS thuần, không đưa vào framework nặng để giữ tính offline và load tức thì.
+
+- **[iPhone Responsive & Dynamic Island]**: Cần iewport-fit=cover, padding sử dụng env(safe-area-inset-top) và env(safe-area-inset-bottom), chiều cao dùng 100dvh để không bị nhảy khung khi thanh địa chỉ Safari thu phóng.

@@ -23,7 +23,7 @@ Nền tảng đích (Platform): Web (Static, Responsive, Mobile & Desktop)
 Ngôn ngữ                : HTML5, CSS3, JavaScript (Vanilla ES6+)
 Hiệu ứng & Đồ họa       : HTML5 Canvas 2D (Ambient petals, Rose blooming, Botanical garden physics)
 Lưu trữ Local           : Web Storage (localStorage) lưu trữ thiệp tùy biến và album ảnh Base64
-Hosting & Deploy        : Vercel (Production URL: https://flowers-20-10-flax.vercel.app)
+Hosting & Deploy        : Vercel (Production URL: https://tangvkyeu.baolab.io.vn & https://flowers-20-10-flax.vercel.app)
 Fonts                   : Noto Serif, Noto Sans (woff2 offline trong assets/fonts/)
 Testing & Automation    : Playwright (playwright-cli, tests/*.cjs)
 Âm thanh & Hiệu ứng     : Background Music (assets/audio/background.mp3), Đĩa than quay Vinyl Player tương tác
@@ -34,8 +34,9 @@ Testing & Automation    : Playwright (playwright-cli, tests/*.cjs)
 ## 3. Cấu Trúc File & Module
 
 ```
-├── index.html            # Trang chính: Bó hoa nở, phong bì mở thiệp, sửa lời chúc, album ảnh kỷ niệm
-├── garden.html           # Trang vườn hoa: Cả một vườn hoa nở dần từ giữa ra 2 bên, thiệp nổi
+├── index.html            # Trang mặc định (vườn hoa nở tặng vợ yêu, thiệp nổi, đĩa than nhạc nền)
+├── garden.html           # Trang vườn hoa tương đương index.html
+├── beta.html             # Trang /beta "Enchanted Starlight Garden" (3 chế độ bầu trời, đom đóm, thả đèn ước nguyện, hoa thì thầm, bụi sao tương tác, thiệp Hoàng gia)
 ├── script.js             # Logic vẽ bó hoa, cánh hoa nở, canvas animation
 ├── card.js               # Logic điều khiển thiệp, lật mở, lưu lời chúc vào localStorage
 ├── album.js              # Logic album ảnh kỷ niệm 3 khung ảnh, upload/resize ảnh tự động

@@ -23,7 +23,7 @@ Nền tảng đích (Platform): Web (Static, Responsive, Mobile & Desktop)
 Ngôn ngữ                : HTML5, CSS3, JavaScript (Vanilla ES6+)
 Hiệu ứng & Đồ họa       : HTML5 Canvas 2D (Ambient petals, Rose blooming, Botanical garden physics)
 Lưu trữ Local           : Web Storage (localStorage) lưu trữ thiệp tùy biến và album ảnh Base64
-Hosting & Deploy        : Vercel (vercel.json) / Static Web Hosting
+Hosting & Deploy        : Vercel (Production URL: https://flowers-20-10-flax.vercel.app)
 Fonts                   : Noto Serif, Noto Sans (woff2 offline trong assets/fonts/)
 Testing & Automation    : Playwright (playwright-cli, tests/*.cjs)
 ```

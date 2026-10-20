@@ -255,12 +255,13 @@
       transform: scale(0.95);
     }
 
-    /* Love Letter Modal (Stable Style) */
+    /* Love Letter Modal (giống hệt v1: nền trong suốt, chữ đen font mặc định, chỉ có blur phía sau) */
     dialog {
+      --paper: initial; --ink: initial; --muted: initial; --rose: initial; --font-letter: initial;
+      font-family: initial; color: CanvasText; background: transparent;
       width: min(440px, calc(100vw - 32px));
       max-height: min(84dvh, calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 36px));
       padding: 0; border: 0; border-radius: 20px; overflow-y: auto;
-      background: var(--paper); color: var(--ink);
       box-shadow: 0 24px 80px #69394d28, 0 4px 16px #69394d12;
       scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch;
       margin: auto;
@@ -392,10 +393,6 @@
       .vinyl-record { width: 42px; height: 42px; }
       .vinyl-center { width: 17px; height: 17px; font-size: 8.5px; }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
-    }
   </style>
 </head>
 <body>
@@ -486,7 +483,8 @@
       const status = document.getElementById('status');
       const whisperLayer = document.getElementById('whisperLayer');
       const themeMeta = document.getElementById('themeColorMeta');
-      const motion = matchMedia('(prefers-reduced-motion: reduce)');
+      // Luôn bật animation, kể cả khi Windows/Chrome đang tắt hiệu ứng (prefers-reduced-motion)
+      const motion = { matches: false, addEventListener() {} };
       const TAU = Math.PI * 2;
       const clamp = n => Math.max(0, Math.min(1, n));
       const ease = n => 1 - Math.pow(1 - clamp(n), 3);

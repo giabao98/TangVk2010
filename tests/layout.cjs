@@ -3,7 +3,7 @@ const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
 const { pathToFileURL } = require('node:url');
 const path = require('node:path');
-const pageUrl = pathToFileURL(path.resolve(__dirname, '../index.html')).href;
+const pageUrl = pathToFileURL(path.resolve(__dirname, '../bouquet.html')).href;
 
 async function assertClearLayout(page, label) {
   const layout = await page.evaluate(() => {

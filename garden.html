@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#bbdff5">
   <meta name="description" content="Chạm một bông hoa, đánh thức cả khu vườn và nhận một lời chúc dịu dàng ngày 20/10.">
-  <title>Cả một vườn thương · 20/10</title>
+  <title>Dành tặng vợ yêu · Cả một vườn hoa 20/10</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
   <link rel="preload" href="./assets/fonts/noto-serif-regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="./assets/fonts/noto-sans-regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -160,14 +160,17 @@
 <body>
   <main class="garden" id="garden">
     <header class="page-header">
-      <p class="dedication">Dành bạn, cả một vườn thương.</p>
+      <div>
+        <p class="dedication">Dành tặng vợ yêu, cả một vườn thương.</p>
+        <a href="./bouquet.html" style="pointer-events: auto; display: inline-block; margin-top: 5px; font-size: 13px; color: var(--rose); text-decoration: none; border-bottom: 1px dashed var(--rose);">Bó hoa & Album kỷ niệm ♡</a>
+      </div>
       <p class="date"><span>20 / 10</span>Ngày Phụ nữ Việt Nam</p>
     </header>
     <canvas id="flowers" aria-hidden="true"></canvas>
     <button class="flower-button" id="bloom" type="button" aria-label="Chạm để cả vườn hoa nở" aria-describedby="introHint"></button>
     <div class="intro" id="intro">
       <h1>Từ một bông hoa nhỏ…</h1>
-      <p id="introHint">Chạm vào hoa, một điều dịu dàng đang chờ bạn.</p>
+      <p id="introHint">Chạm vào hoa, một điều ngọt ngào đang chờ em.</p>
     </div>
     <p class="progress" id="status" role="status" aria-live="polite" aria-atomic="true"></p>
     <nav class="garden-actions" id="actions" aria-label="Vườn hoa và thiệp" hidden>
@@ -188,14 +191,14 @@
           </g>
         </svg>
         <div id="cardReading">
-          <p class="recipient">Gửi <span id="cardRecipient">bạn thương mến</span>,</p>
-          <h2 id="cardTitle">Mong những điều đẹp đẽ<br>luôn nở bên bạn.</h2>
+          <p class="recipient">Gửi <span id="cardRecipient">vợ yêu của anh</span>,</p>
+          <h2 id="cardTitle">Chúc em ngày 20/10<br>thật nhiều hạnh phúc và yêu thương.</h2>
           <div id="cardMessage">
-            <p class="message">Một bông hoa có thể làm một ngày thêm đẹp.<br>Còn bạn, làm thế giới này dịu dàng hơn.</p>
-            <p class="message">Nhân ngày 20/10, chúc bạn luôn được yêu thương, trân trọng và có thật nhiều niềm vui. Mong bạn đủ bình yên để tận hưởng những điều nhỏ bé, đủ tự tin để theo đuổi những điều mình yêu.</p>
-            <p class="message">Hôm nay và cả những ngày sau,<br>hãy cứ rạng rỡ theo cách của riêng mình nhé.</p>
+            <p class="message">Một bông hoa có thể làm một ngày thêm đẹp.<br>Còn em, làm cho cuộc sống của anh luôn ngập tràn sự dịu dàng và ấm áp mỗi ngày.</p>
+            <p class="message">Nhân ngày Phụ nữ Việt Nam 20/10, chúc vợ yêu luôn xinh đẹp, bình an và ngập tràn niềm vui. Cảm ơn em đã luôn là người bạn đồng hành tuyệt vời, cùng anh vun vén cho tổ ấm nhỏ của chúng mình.</p>
+            <p class="message">Hôm nay và cả những ngày sau,<br>hãy luôn rạng rỡ và mỉm cười em nhé. Yêu vợ thật nhiều!</p>
           </div>
-          <p class="signature" id="cardSignature">Gửi bạn thật nhiều thương mến ♡</p>
+          <p class="signature" id="cardSignature">Chồng yêu của em ♡</p>
           <div class="letter-actions">
             <button class="view-garden" id="viewGarden" type="button" autofocus>Ngắm vườn hoa</button>
             <button class="view-garden" id="editCard" type="button">Viết lời chúc riêng</button>
@@ -471,7 +474,7 @@
       }
       function finish() {
         state = 'ready'; garden.classList.add('is-ready'); actions.hidden = false;
-        status.textContent = 'Cả vườn hoa đã nở. Một tấm thiệp dành tặng bạn.';
+        status.textContent = 'Cả vườn hoa đã nở. Một tấm thiệp dành tặng vợ yêu.';
         openCard();
       }
       function draw(time) {

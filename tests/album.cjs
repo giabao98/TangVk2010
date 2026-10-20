@@ -3,7 +3,7 @@ const { chromium } = require('playwright');
 const assert = require('node:assert/strict');
 const { pathToFileURL } = require('node:url');
 const path = require('node:path');
-const pageUrl = pathToFileURL(path.resolve(__dirname, '../index.html')).href;
+const pageUrl = pathToFileURL(path.resolve(__dirname, '../bouquet.html')).href;
 const key = index => `flower.album.photo.20-10.v1.${index}`;
 
 async function openAlbum(page) {

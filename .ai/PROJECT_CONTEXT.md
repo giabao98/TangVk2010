@@ -26,6 +26,7 @@ Lưu trữ Local           : Web Storage (localStorage) lưu trữ thiệp tùy 
 Hosting & Deploy        : Vercel (Production URL: https://flowers-20-10-flax.vercel.app)
 Fonts                   : Noto Serif, Noto Sans (woff2 offline trong assets/fonts/)
 Testing & Automation    : Playwright (playwright-cli, tests/*.cjs)
+Âm thanh & Hiệu ứng     : Background Music (assets/audio/background.mp3), Đĩa than quay Vinyl Player tương tác
 ```
 
 ---

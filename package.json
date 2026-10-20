@@ -1,0 +1,17 @@
+{
+  "name": "flowers-20-10",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Một bó hoa và tấm thiệp nhỏ, gửi những lời chúc dịu dàng nhân ngày Phụ nữ Việt Nam 20/10",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [
+    "flowers",
+    "20-10",
+    "vietnamese-womens-day"
+  ],
+  "author": "",
+  "license": "MIT"
+}

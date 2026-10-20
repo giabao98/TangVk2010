@@ -36,7 +36,7 @@ Testing & Automation    : Playwright (playwright-cli, tests/*.cjs)
 ```
 ├── index.html            # Trang mặc định (vườn hoa nở tặng vợ yêu, thiệp nổi, đĩa than nhạc nền)
 ├── garden.html           # Trang vườn hoa tương đương index.html
-├── beta.html             # Trang /beta "Enchanted Starlight Garden" (3 chế độ bầu trời, đom đóm, thả đèn ước nguyện, hoa thì thầm, bụi sao tương tác, thiệp Hoàng gia)
+├── beta.html             # Trang /beta "Sunlit Rainbow & Butterfly Garden" (3 sắc nắng ban ngày, tia nắng ban mai, cầu vồng đôi, đàn bướm 3D vỗ cánh, bong bóng cầu vồng mang trái tim, hoa thì thầm, thiệp Hoàng gia)
 ├── script.js             # Logic vẽ bó hoa, cánh hoa nở, canvas animation
 ├── card.js               # Logic điều khiển thiệp, lật mở, lưu lời chúc vào localStorage
 ├── album.js              # Logic album ảnh kỷ niệm 3 khung ảnh, upload/resize ảnh tự động

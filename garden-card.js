@@ -18,6 +18,7 @@
     signature: document.getElementById('signatureInput')
   };
   function readText(element) {
+    if (!element) return '';
     const copy = element.cloneNode(true);
     copy.querySelectorAll('br').forEach(br => br.replaceWith('\n'));
     return copy.textContent.trim();
@@ -25,78 +26,95 @@
   let greeting = {
     recipient: readText(recipient),
     title: readText(title),
-    message: [...message.querySelectorAll('p')].map(readText).join('\n\n'),
+    message: message ? [...message.querySelectorAll('p')].map(readText).join('\n\n') : '',
     signature: readText(signature)
   };
 
   function renderGreeting() {
-    recipient.textContent = greeting.recipient;
-    title.textContent = greeting.title;
-    signature.textContent = greeting.signature;
-    message.replaceChildren(...greeting.message.split(/\n\s*\n/).map(text => {
-      const paragraph = document.createElement('p');
-      paragraph.className = 'message';
-      paragraph.textContent = text;
-      return paragraph;
-    }));
+    if (recipient) recipient.textContent = greeting.recipient;
+    if (title) title.textContent = greeting.title;
+    if (signature) signature.textContent = greeting.signature;
+    if (message) {
+      message.replaceChildren(...greeting.message.split(/\n\s*\n/).map(text => {
+        const paragraph = document.createElement('p');
+        paragraph.className = 'message';
+        paragraph.textContent = text;
+        return paragraph;
+      }));
+    }
   }
 
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
     if (saved && Object.entries(inputs).every(([key, input]) =>
-      typeof saved[key] === 'string' && saved[key].trim() && saved[key].length <= input.maxLength)) {
+      input && typeof saved[key] === 'string' && saved[key].trim() && saved[key].length <= input.maxLength)) {
       greeting = Object.fromEntries(Object.keys(inputs).map(key => [key, saved[key].trim()]));
       renderGreeting();
     }
   } catch {
-    // Keep the original letter when storage is unavailable or malformed.
+    // Keep original
   }
 
   function showReading() {
-    editor.hidden = true;
-    reading.hidden = false;
-    card.setAttribute('aria-labelledby', 'cardTitle');
-    card.scrollTop = 0;
+    if (editor) editor.hidden = true;
+    if (reading) reading.hidden = false;
+    if (card) {
+      card.setAttribute('aria-labelledby', 'cardTitle');
+      card.scrollTop = 0;
+    }
   }
 
-  editButton.addEventListener('click', () => {
-    Object.entries(inputs).forEach(([key, input]) => {
-      input.value = greeting[key];
-      input.setCustomValidity('');
+  if (editButton && editor) {
+    editButton.addEventListener('click', () => {
+      Object.entries(inputs).forEach(([key, input]) => {
+        if (input) {
+          input.value = greeting[key];
+          input.setCustomValidity('');
+        }
+      });
+      if (reading) reading.hidden = true;
+      editor.hidden = false;
+      if (status) status.textContent = '';
+      card.setAttribute('aria-labelledby', 'editorTitle');
+      card.scrollTop = 0;
+      if (inputs.recipient) inputs.recipient.focus({ preventScroll: true });
     });
-    reading.hidden = true;
-    editor.hidden = false;
-    status.textContent = '';
-    card.setAttribute('aria-labelledby', 'editorTitle');
-    card.scrollTop = 0;
-    inputs.recipient.focus({ preventScroll: true });
-  });
-  document.getElementById('cancelEdit').addEventListener('click', () => {
-    showReading();
-    editButton.focus({ preventScroll: true });
-  });
-  card.addEventListener('close', () => {
-    showReading();
-    status.textContent = '';
-  });
-  Object.values(inputs).forEach(input => {
-    input.addEventListener('input', () => input.setCustomValidity(''));
-  });
-  editor.addEventListener('submit', event => {
-    event.preventDefault();
-    Object.values(inputs).forEach(input => {
-      input.setCustomValidity(input.value.trim() ? '' : 'Bạn viết vài chữ vào đây nhé.');
-    });
-    if (!editor.reportValidity()) return;
-    greeting = Object.fromEntries(Object.entries(inputs).map(([key, input]) => [key, input.value.trim()]));
-    renderGreeting();
-    showReading();
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(greeting));
-      status.textContent = 'Đã lưu lời chúc của bạn.';
-    } catch {
-      status.textContent = 'Đã cập nhật thiệp. Trình duyệt chưa cho phép lưu để dùng lần sau.';
+
+    const cancelBtn = document.getElementById('cancelEdit');
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', () => {
+        showReading();
+        editButton.focus({ preventScroll: true });
+      });
     }
-    editButton.focus({ preventScroll: true });
-  });
+
+    Object.values(inputs).forEach(input => {
+      if (input) input.addEventListener('input', () => input.setCustomValidity(''));
+    });
+
+    editor.addEventListener('submit', event => {
+      event.preventDefault();
+      Object.values(inputs).forEach(input => {
+        if (input) input.setCustomValidity(input.value.trim() ? '' : 'Bạn viết vài chữ vào đây nhé.');
+      });
+      if (!editor.reportValidity()) return;
+      greeting = Object.fromEntries(Object.entries(inputs).map(([key, input]) => [key, input ? input.value.trim() : '']));
+      renderGreeting();
+      showReading();
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(greeting));
+        if (status) status.textContent = 'Đã lưu lời chúc của bạn.';
+      } catch {
+        if (status) status.textContent = 'Đã cập nhật thiệp. Trình duyệt chưa cho phép lưu để dùng lần sau.';
+      }
+      editButton.focus({ preventScroll: true });
+    });
+  }
+
+  if (card) {
+    card.addEventListener('close', () => {
+      showReading();
+      if (status) status.textContent = '';
+    });
+  }
 })();

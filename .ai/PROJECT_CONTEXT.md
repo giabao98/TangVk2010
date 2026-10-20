@@ -34,9 +34,10 @@ Testing & Automation    : Playwright (playwright-cli, tests/*.cjs)
 ## 3. Cấu Trúc File & Module
 
 ```
-├── index.html            # Trang mặc định (vườn hoa nở tặng vợ yêu, thiệp nổi, đĩa than nhạc nền)
-├── garden.html           # Trang vườn hoa tương đương index.html
-├── beta.html             # Trang /beta "Sunlit Rainbow & Butterfly Garden" (3 sắc nắng ban ngày, tia nắng ban mai, cầu vồng đôi, đàn bướm 3D vỗ cánh, bong bóng cầu vồng mang trái tim, hoa thì thầm, thiệp Hoàng gia)
+├── index.html            # Trang chủ mặc định (/): Sắc nắng hồng Sakura, tia nắng ban mai, cầu vồng đôi, đàn bướm 3D, bong bóng trái tim, hoa thì thầm, popup thiệp chuẩn stable
+├── v1.html               # Trang /v1: Bản stable vườn hoa truyền thống trước đó
+├── garden.html           # Trang /garden tương đương index.html
+├── beta.html             # Trang /beta tương đương index.html
 ├── script.js             # Logic vẽ bó hoa, cánh hoa nở, canvas animation
 ├── card.js               # Logic điều khiển thiệp, lật mở, lưu lời chúc vào localStorage
 ├── album.js              # Logic album ảnh kỷ niệm 3 khung ảnh, upload/resize ảnh tự động

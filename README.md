@@ -7,6 +7,10 @@ Trang web thiệp hoa tương tác đặc biệt và lãng mạn, được thi�
 🌐 **Trải nghiệm trực tiếp:** [https://tangvkyeu.baolab.io.vn](https://tangvkyeu.baolab.io.vn)  
 *(Backup link: [https://flowers-20-10-flax.vercel.app](https://flowers-20-10-flax.vercel.app))*
 
+<p align="center">
+  <img src="./assets/preview.png" alt="TangVk2010 Khu Vườn Hoa 20/10" width="100%" style="border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12);" />
+</p>
+
 ---
 
 ## ✨ Điểm Nổi Bật & Tính Năng

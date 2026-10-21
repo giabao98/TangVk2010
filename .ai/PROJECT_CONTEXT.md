@@ -46,7 +46,7 @@ Testing & Automation    : Playwright (playwright-cli, tests/*.cjs)
 ├── style.css             # Toàn bộ CSS phong cách thiệp hoa, responsive, animation
 ├── vercel.json           # Cấu hình routing cho Vercel (cleanUrls, trailingSlash)
 ├── package.json          # Metadata và scripts
-├── assets/               # Hình ảnh mẫu và font Noto Serif / Sans offline
+├── assets/               # Hình ảnh mẫu (kèm preview.png cho Open Graph/README) và font Noto Serif / Sans offline
 └── tests/                # Test layout và album với Playwright
 ```
 
